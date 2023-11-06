@@ -29,6 +29,7 @@ import androidx.lifecycle.ViewModel
  * ViewModel containing the app data and methods to process the data
  */
 class GameViewModel : ViewModel() {
+    private val viewModel = GameViewModel()
     private val _score = MutableLiveData(0)
     val score: LiveData<Int>
         get() = _score
@@ -63,6 +64,7 @@ class GameViewModel : ViewModel() {
 
     init {
         getNextWord()
+        Log.d("GameFragment", "GameViewModel created!")
     }
 
     /*
@@ -127,6 +129,15 @@ class GameViewModel : ViewModel() {
             isGameOver = true
             false
         }
+    }
+
+    /*
+    * onCleared method callback
+    * Add log to track the class lifecycle
+     */
+    override fun onCleared() {
+        super.onCleared()
+        Log.d("GameFragment", "GameViewModel destroyed!")
     }
 
     fun isGameOver() = isGameOver
