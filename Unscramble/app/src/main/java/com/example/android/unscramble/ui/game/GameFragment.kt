@@ -144,6 +144,9 @@ class GameFragment : Fragment() {
         }
     }
 
+    /*
+    * onDetach method to corresponding activity and fragment are destroyed
+     */
     override fun onDetach() {
         super.onDetach()
         Log.d("GameFragment", "GameFragment destroyed!")
